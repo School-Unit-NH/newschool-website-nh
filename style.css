@@ -1,0 +1,359 @@
+
+    :root{
+      --bg: #f7e8c8;
+      --red: #d63b3b;
+      --red-dark:#b92d2d;
+      --yellow:#f3c85a;
+      --text:#2b2b2b;
+      --muted:#6b6b6b;
+      --shadow: 0 10px 24px rgba(0,0,0,.08);
+      --radius: 999px;
+      --max: 1100px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Helvetica Neue", sans-serif;
+      color:var(--text);
+      background:#fff;
+    }
+
+    /* ====== PAGE WRAP (the “cream card”) ====== */
+    .page{
+      min-height:100vh;
+      background: var(--bg);
+      position:relative;
+      overflow:hidden;
+      padding: 28px 22px 34px;
+    }
+
+    /* corner blobs */
+    .page::before,
+    .page::after{
+      content:"";
+      position:absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: var(--red);
+      opacity: 1;
+      z-index:0;
+    }
+    .page::before{
+      top:-130px;
+      left:-140px;
+    }
+    .page::after{
+      top:-110px;
+      right:-150px;
+      width: 320px;
+      height: 320px;
+    }
+
+    .container{
+      max-width: var(--max);
+      margin:0 auto;
+      position:relative;
+      z-index:1;
+    }
+
+    /* ====== NAV ====== */
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:18px;
+      padding: 6px 0 18px;
+    }
+    .brand{
+      font-weight:800;
+      letter-spacing:.3px;
+      color:var(--yellow);
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+    .nav-links{
+      display:flex;
+      gap:22px;
+      align-items:center;
+      font-size: 12px;
+      color:#2f2f2f;
+      opacity:.85;
+    }
+    .nav-links a{
+      color:inherit;
+      text-decoration:none;
+      text-transform: uppercase;
+      letter-spacing:.3px;
+    }
+    .login{
+      font-size:12px;
+      text-transform: uppercase;
+      letter-spacing:.3px;
+      color:#fff;
+      background: var(--yellow);
+      border:0;
+      padding:10px 16px;
+      border-radius: 10px;
+      cursor:pointer;
+      box-shadow: var(--shadow);
+    }
+
+    /* ====== HERO ====== */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 26px;
+      align-items:center;
+      padding: 18px 0 16px;
+    }
+
+    .hero h1{
+      margin:0 0 12px;
+      font-size: clamp(38px, 5vw, 64px);
+      line-height: .95;
+      letter-spacing: .5px;
+      color: var(--red);
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    .hero p{
+      margin: 0 0 18px;
+      max-width: 520px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .hero p b{
+      color: var(--red-dark);
+    }
+
+    .cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border:0;
+      cursor:pointer;
+      padding: 12px 20px;
+      border-radius: var(--radius);
+      background: var(--yellow);
+      color:#3a2a00;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing:.6px;
+      box-shadow: var(--shadow);
+    }
+
+    /* small decorative stars */
+    .stars{
+      margin-top: 12px;
+      display:flex;
+      gap:14px;
+      opacity:.8;
+    }
+    .star{
+      width: 10px;
+      height: 10px;
+      border:2px solid var(--red);
+      transform: rotate(45deg);
+      border-radius:2px;
+    }
+
+    /* ====== HERO IMAGE CIRCLE ====== */
+    .hero-art{
+      position:relative;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height: 330px;
+    }
+
+    .circle{
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: #f6d67e;
+      position:relative;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .circle::before{
+      content:"";
+      position:absolute;
+      inset: 14px;
+      border-radius: 50%;
+      border: 2px dashed rgba(214, 59, 59, .35);
+    }
+
+    /* Replace the src with your real image path */
+    .circle img{
+      width: 230px;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 28px;
+      transform: translateY(-2px);
+      filter: drop-shadow(0 16px 18px rgba(0,0,0,.12));
+      background: #fff;
+    }
+
+    /* ====== FEATURES ====== */
+    .features{
+      margin-top: 24px;
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      padding-top: 10px;
+    }
+    .feature{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      color:#4b4b4b;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .spark{
+      width: 14px;
+      height: 14px;
+      background: var(--red);
+      transform: rotate(45deg);
+      border-radius: 3px;
+      flex: 0 0 auto;
+      opacity:.9;
+    }
+
+    /* ====== RESPONSIVE ====== */
+    @media (max-width: 900px){
+      .nav-links{ display:none; }
+      .hero{ grid-template-columns: 1fr; }
+      .hero-art{ order:-1; min-height: 260px; }
+      .features{ grid-template-columns: 1fr 1fr; }
+      .circle{ width: 240px; height: 240px; }
+      .circle img{ width: 200px; height: 200px; }
+    }
+
+    @media (max-width: 520px){
+      .features{ grid-template-columns: 1fr; }
+      .login{ padding:9px 12px;}
+    }
+
+
+    /* The new */
+
+    /* feature cards: 4 columns (exactly as in the image) */
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 24px;
+        margin: 70px 0 40px;
+    }
+
+    .feature-card {
+        background: white;
+        padding: 32px 24px;
+        border-radius: 32px;
+        box-shadow: 0 15px 35px -10px rgba(27, 47, 54, 0.1);
+        border: 1px solid #f0e9db;
+        transition: all 0.2s;
+        text-decoration: none;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .feature-card:hover {
+        transform: translateY(-6px);
+        border-color: #f9d170;
+        cursor: pointer;
+    }
+
+    .feature-icon {
+        background: #fef1dd;
+        width: 60px;
+        height: 60px;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        color: #c45b2e;
+        margin-bottom: 28px;
+    }
+
+    .feature-card:nth-child(2) .feature-icon { background: #e0f0ea; color: #1d7a62; }
+    .feature-card:nth-child(3) .feature-icon { background: #f9e6cf; color: #ba7c3b; }
+    .feature-card:nth-child(4) .feature-icon { background: #d9eaf5; color: #2a6f8d; }
+
+    .feature-card h3 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 12px;
+        color: #16323b;
+    }
+
+    .feature-card p {
+        color: #45616b;
+        font-weight: 400;
+        font-size: 0.95rem;
+        line-height: 1.4;
+        margin-bottom: auto;
+    }
+
+    /* small extra line to match bottom text (from image "Live voice communication in every class") */
+    .feature-card .extra-detail {
+        margin-top: 16px;
+        font-size: 0.9rem;
+        color: #c45b2e;
+        font-weight: 500;
+        border-top: 1px dashed #e0d6c0;
+        padding-top: 14px;
+    }
+
+    /* ----- making sure the layout respects all image text ----- */
+    .image-mention {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px 0 40px;
+        color: #4b6a76;
+        border-top: 1px solid #eadfcb;
+        padding-top: 24px;
+        font-size: 0.9rem;
+    }
+
+    .image-mention i {
+        color: #c45b2e;
+        margin-right: 6px;
+    }
+
+    /* responsive for smaller screens */
+    @media (max-width: 1000px) {
+        .features-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 600px) {
+        .features-grid { grid-template-columns: 1fr; }
+        
+    }
+
+    @media (min-width: 1200px) {
+        .brand {color: var(--red-dark)}
+        .login {background: var(--red);}
+        
+    }
+
+    /* add micro detail: small "online" label */
+    .online-tag {
+        background: #f2d53c;
+        color: #1e2a2f;
+        padding: 4px 12px;
+        border-radius: 100px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        margin-left: 12px;
+    }
