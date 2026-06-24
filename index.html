@@ -1,197 +1,532 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+
+<html class="scroll-smooth" lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Iloko Model College</title>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Iloko Model College | Excellence, Character, and Community</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link
+      href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400..900;1,8..60,400..900&amp;family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&amp;display=swap"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
-    <link href="style.css" rel="stylesheet" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
   </head>
-  <body>
-    <main class="page">
-      <div class="container">
-        <header class="nav">
-          <div class="brand-wrap">
-            <img
-              class="brand-logo"
-              src="logo.jpg"
-              alt="Iloko Model College logo"
-            />
-            <div class="brand">Iloko Model College</div>
-          </div>
-
-          <nav class="nav-links">
-            <a href="#">Primary School</a>
-            <a href="#">Secondary School</a>
-            <a href="#">LMS</a>
-            <!-- <a href="#">Admissions</a> -->
-          </nav>
-
-          <button class="login">LMS Login</button>
-          <!-- Portal Login -->
-        </header>
-
-        <section class="hero">
-          <div>
-            <h1>Iloko<br />Model College</h1>
-            <p>
-              A complete learning environment for
-              <b>Primary and Secondary</b> students.<br />
-              Access classes, assignments, and results anytime.
-            </p>
-
-            <!-- <button class="cta">Get Started</button> -->
-
-            <div class="stars" aria-hidden="true">
-              <div class="star"></div>
-              <div class="star"></div>
-              <div class="star"></div>
+  <body class="bg-surface text-on-surface font-body-md overflow-x-hidden">
+    <!-- TopNavBar -->
+    <header
+      class="fixed top-0 left-0 right-0 z-50 bg-surface shadow-sm transition-all duration-300"
+    >
+      <nav
+        class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-[1200px] mx-auto"
+      >
+        <div class="flex items-center gap-4">
+          <img
+            alt="Iloko Model College Logo"
+            class="h-12 w-auto object-contain"
+            src="assets/logo.png"
+          />
+          <span
+            class="hidden lg:block font-headline-xl text-heritage-red tracking-tight"
+            >Iloko Model College</span
+          >
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+          <a
+            class="font-label-md text-primary border-b-2 border-heritage-red pb-1 font-bold"
+            href="#"
+            >Our Heritage</a
+          >
+          <a
+            class="font-label-md text-on-surface-variant hover:text-heritage-red transition-colors duration-200"
+            href="#"
+            >Academic Life</a
+          >
+          <a
+            class="font-label-md text-on-surface-variant hover:text-heritage-red transition-colors duration-200"
+            href="#"
+            >Admissions</a
+          >
+          <a
+            class="font-label-md text-on-surface-variant hover:text-heritage-red transition-colors duration-200"
+            href="#"
+            >News</a
+          >
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            class="bg-heritage-red text-white px-6 py-2 rounded-lg font-label-md hover:bg-primary transition-all duration-300 shadow-md active:opacity-80"
+          >
+            Portal Login
+          </button>
+          <button class="md:hidden text-on-surface p-2">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <!-- Hero Section -->
+    <section class="relative min-h-[90vh] flex items-center pt-20">
+      <div class="absolute inset-0 z-0">
+        <!-- Using user prompt instruction: "A majestic hero section using IMAGE_3 as the background" -->
+        <!-- Image index for the reference "IMAGE_3" was implied to be the main header image from the provided screenshot -->
+        <div
+          class="absolute inset-0 bg-cover bg-center"
+          data-alt="A grand cinematic view of the Iloko Model College entrance gates under a clear blue sky. The scene shows the elegant academic architecture, flourishing palm trees, and the Nigerian flag waving proudly. The lighting is warm and golden, evoking a sense of prestige, tradition, and academic excellence at sunset."
+          style="background-image: url(&quot;assets/school-banner.jpg&quot;)"
+        ></div>
+        <div class="absolute inset-0 hero-gradient"></div>
+      </div>
+      <div
+        class="relative z-10 w-full max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop text-center md:text-left text-white"
+      >
+        <div
+          class="inline-block bg-academic-gold/20 backdrop-blur-md border border-academic-gold/30 px-4 py-1 rounded-full mb-6"
+        >
+          <span
+            class="font-label-md text-secondary-fixed tracking-widest uppercase"
+            >Excellence. Character. Community.</span
+          >
+        </div>
+        <h1
+          class="font-display-lg-mobile md:font-display-lg text-white mb-6 text-shadow-sm max-w-3xl"
+        >
+          Iloko Model College: Excellence in Every Step
+        </h1>
+        <p
+          class="font-body-lg text-surface-container-low mb-10 max-w-2xl leading-relaxed opacity-90"
+        >
+          A comprehensive learning environment for Primary and Secondary
+          excellence, fostering character and community through academic rigor
+          and innovative education.
+        </p>
+        <div
+          class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
+        >
+          <button
+            class="bg-heritage-red text-white px-8 py-4 rounded-lg font-label-md flex items-center justify-center gap-2 hover:bg-primary transition-all shadow-lg"
+          >
+            Explore Our Schools
+            <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </button>
+          <button
+            class="bg-white/10 backdrop-blur-md border border-white/30 text-white px-8 py-4 rounded-lg font-label-md hover:bg-white/20 transition-all"
+          >
+            Contact Admissions
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- The Gateway Hub -->
+    <section class="py-section-padding bg-surface-cream">
+      <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="text-center mb-16">
+          <p
+            class="font-label-md text-heritage-red tracking-widest uppercase mb-2"
+          >
+            Our Academic Pathways
+          </p>
+          <h2 class="font-headline-xl text-on-surface">The Gateway Hub</h2>
+          <div class="w-24 h-1 bg-academic-gold mx-auto mt-4"></div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+          <!-- Primary School Card -->
+          <div
+            class="bg-surface border border-outline-variant rounded-xl overflow-hidden shadow-sm card-lift group"
+          >
+            <div class="h-64 relative overflow-hidden">
+              <img
+                alt="Primary School Section"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                src="assets/school.png"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+            </div>
+            <div class="p-8">
+              <h3 class="font-headline-lg text-heritage-red mb-4">
+                Primary School
+              </h3>
+              <p class="font-body-md text-on-surface-variant mb-8 h-12">
+                Foundation learning platform for early education and student
+                growth.
+              </p>
+              <button
+                class="w-full border-2 border-heritage-red text-heritage-red font-label-md py-3 rounded-lg hover:bg-heritage-red hover:text-white transition-all"
+              >
+                Visit Site
+              </button>
             </div>
           </div>
-
-          <div class="hero-art">
-            <div class="circle">
+          <!-- Secondary School Card -->
+          <div
+            class="bg-surface border border-outline-variant rounded-xl overflow-hidden shadow-sm card-lift group"
+          >
+            <div class="h-64 relative overflow-hidden">
               <img
-                src="try.jpg"
-                alt="Iloko Model College champion poster"
+                alt="Secondary School Section"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                src="assets/school-banner.jpg"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+            </div>
+            <div class="p-8">
+              <h3 class="font-headline-lg text-heritage-red mb-4">
+                Secondary School
+              </h3>
+              <p class="font-body-md text-on-surface-variant mb-8 h-12">
+                Academic and skill development system for junior and senior
+                students.
+              </p>
+              <button
+                class="w-full border-2 border-heritage-red text-heritage-red font-label-md py-3 rounded-lg hover:bg-heritage-red hover:text-white transition-all"
+              >
+                Visit Site
+              </button>
+            </div>
+          </div>
+          <!-- LMS & Portal Card -->
+          <div
+            class="bg-surface border border-outline-variant rounded-xl overflow-hidden shadow-sm card-lift group"
+          >
+            <div class="h-64 relative overflow-hidden">
+              <img
+                alt="Learning Management System"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                src="https://lh3.googleusercontent.com/aida/AP1WRLsl9s_uGZHLe3oIcNzmXGuwTgMlSTPsB0MLUvn5x76d-u_1k8QH8R_0rxKnvS4DA1OL3TENP8BP3LlSu_sr32Y333069OgHYpilyI8uw3nhW62NoK5W62leBUYstBMsuhNJvUdB9h-OiQnNcgldzbrt10Lr-KT8IAAFWlCqIICQ9D19BEtiNsyI-sMW_DLQcfiqNca1yI9xEGk3SJht1qrSgSsNaZDmWYaDppNx2laRS8xrRpx8MQ4HjC5B"
+              />
+              <div
+                class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+              ></div>
+            </div>
+            <div class="p-8">
+              <h3 class="font-headline-lg text-heritage-red mb-4">
+                LMS &amp; Portal
+              </h3>
+              <p class="font-body-md text-on-surface-variant mb-8 h-12">
+                Digital classroom for assignments, resources, and virtual
+                learning.
+              </p>
+              <button
+                class="w-full border-2 border-heritage-red text-heritage-red font-label-md py-3 rounded-lg hover:bg-heritage-red hover:text-white transition-all"
+              >
+                Visit Site
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- The Iloko Difference (Our Legacy) -->
+    <section class="py-section-padding bg-surface overflow-hidden">
+      <div class="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop">
+        <div class="flex flex-col lg:flex-row items-center gap-16">
+          <!-- Image Montage -->
+          <div class="w-full lg:w-1/2 relative h-[500px] md:h-[600px]">
+            <div
+              class="absolute top-0 right-0 w-4/5 h-4/5 rounded-2xl overflow-hidden shadow-xl border-4 border-white z-10"
+            >
+              <img
+                alt="School Environment Montage"
+                class="w-full h-full object-cover"
+                src="assets/school-view4.jpg"
               />
             </div>
+            <div
+              class="absolute bottom-0 left-0 w-4/5 h-4/5 rounded-2xl overflow-hidden shadow-xl border-4 border-white z-0 transform -translate-x-4 translate-y-4"
+            >
+              <img
+                alt="Students in Classroom"
+                class="w-full h-full object-cover"
+                src="assets/1.jpg"
+              />
+            </div>
+            <!-- Decorative Element -->
+            <div
+              class="absolute -bottom-8 -right-8 w-32 h-32 bg-academic-gold/10 rounded-full blur-3xl"
+            ></div>
           </div>
-        </section>
-
-        <!-- <section class="palette-section" aria-labelledby="palette-heading">
-        <div class="palette-header">
-          <h2 id="palette-heading">Color Palette Preview</h2>
-          <p>Before and after color themes, based on your logo and champion poster.</p>
-        </div>
-        <div class="palette-compare">
-          <article class="palette-card">
-            <h3>Before (Old Theme)</h3>
-            <div class="swatch-grid">
-              <div class="swatch before-bg">
-                <span>Background</span>
-                <small>#F7E8C8</small>
-              </div>
-              <div class="swatch before-primary">
-                <span>Primary</span>
-                <small>#D63B3B</small>
-              </div>
-              <div class="swatch before-accent">
-                <span>Accent</span>
-                <small>#F3C85A</small>
-              </div>
-              <div class="swatch before-text">
-                <span>Text</span>
-                <small>#2B2B2B</small>
-              </div>
-            </div>
-          </article>
-
-          <article class="palette-card">
-            <h3>After (IMC Theme)</h3>
-            <div class="swatch-grid">
-              <div class="swatch after-bg">
-                <span>Background</span>
-                <small>#E9EEF4</small>
-              </div>
-              <div class="swatch after-primary">
-                <span>Magenta Banner</span>
-                <small>#E50F63</small>
-              </div>
-              <div class="swatch after-secondary">
-                <span>Red Edge</span>
-                <small>#EF3F25</small>
-              </div>
-              <div class="swatch after-accent">
-                <span>Yellow Ring</span>
-                <small>#F1DB36</small>
-              </div>
-              <div class="swatch after-lime">
-                <span>Ribbon Lime</span>
-                <small>#B8C92E</small>
-              </div>
-              <div class="swatch after-navy">
-                <span>Tie Navy</span>
-                <small>#4D578F</small>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section> -->
-      </div>
-
-      <div class="container">
-        <div class="features-grid">
-          <a href="#" class="feature-card">
-            <div class="feature-icon"><i class="fas fa-school"></i></div>
-            <h3>Primary School</h3>
-            <p>
-              Foundation learning platform for early education and student
-              growth.
+          <!-- Text Content -->
+          <div class="w-full lg:w-1/2">
+            <p
+              class="font-label-md text-secondary tracking-widest uppercase mb-4"
+            >
+              Our Legacy
             </p>
-            <div class="extra-detail">
-              <i class="fas fa-child"></i> Nursery and Basic Classes
-            </div>
-          </a>
-
-          <a href="#" class="feature-card">
-            <div class="feature-icon"><i class="fas fa-user-graduate"></i></div>
-            <h3>Secondary School</h3>
-            <p>
-              Academic and skill development system for junior and senior
-              students.
+            <h2 class="font-headline-xl text-on-surface mb-6 leading-tight">
+              A Tradition of <br /><span class="text-heritage-red italic"
+                >Academic Excellence</span
+              >
+            </h2>
+            <p
+              class="font-body-lg text-on-surface-variant mb-8 leading-relaxed"
+            >
+              Iloko Model College was founded in 2001 by Oba Oladele Olashore,
+              resuming with its pioneer set of students on September 24, 2001.
+              Olashore International School (OIS) provided crucial support,
+              sending pioneer principals Mr. Johnson Adewole and Elder A. O.
+              Awe, and providing computer labs, science equipment, and furniture
+              to build a solid academic base.
             </p>
-            <div class="extra-detail">
-              <i class="fas fa-book"></i> Junior and Senior Secondary
-            </div>
-          </a>
-
-          <a href="#" class="feature-card">
-            <div class="feature-icon"><i class="fas fa-laptop"></i></div>
-            <h3>Learning Management System</h3>
-            <p>
-              Digital classroom for assignments, resources, and virtual
-              learning.
+            <p
+              class="font-body-md text-on-surface-variant mb-10 leading-relaxed"
+            >
+              In 2004, the school presented students for its first external
+              exams (BECE, WASSCE, NECO) with excellent outcomes, initiating a
+              long-standing record of success. In 2019, the primary section,
+              Iloko Model Kiddies Academy, was established to extend this
+              standard of education to younger children.
             </p>
-            <div class="extra-detail">
-              <i class="fas fa-video"></i> Online classes and materials
+            <div
+              class="grid grid-cols-2 gap-gutter border-t border-outline-variant pt-8"
+            >
+              <div>
+                <p class="font-display-lg-mobile text-heritage-red">10:1</p>
+                <p
+                  class="font-label-md text-on-surface-variant uppercase tracking-wider"
+                >
+                  Student-Faculty Ratio
+                </p>
+              </div>
+              <div>
+                <p class="font-display-lg-mobile text-heritage-red">100%</p>
+                <p
+                  class="font-label-md text-on-surface-variant uppercase tracking-wider"
+                >
+                  School Admission Rate
+                </p>
+              </div>
             </div>
-          </a>
-
-          <!-- <a href="#" class="feature-card">
-            <div class="feature-icon"><i class="fas fa-user-cog"></i></div>
-            <h3>Admin Portal</h3>
-            <p>Central dashboard for school management and operations.</p>
-            <div class="extra-detail"><i class="fas fa-chart-line"></i> Results, fees and reports</div>
-          </a> -->
+            <a
+              class="mt-12 inline-flex items-center gap-2 font-label-md text-heritage-red group"
+              href="#"
+            >
+              Explore Our Full History
+              <span
+                class="material-symbols-outlined group-hover:translate-x-2 transition-transform"
+                >arrow_forward</span
+              >
+            </a>
+          </div>
         </div>
-
-        <div class="image-mention">
-          <span class="meta-item">
-            <i class="fas fa-check-circle"></i>
-            Primary - Secondary - LMS
-          </span>
-
-          <span class="meta-item">
-            <i class="fas fa-comment"></i>
-            Support and communication for students and parents
-          </span>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer
+      class="bg-surface-container-highest border-t border-outline-variant"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop py-section-padding max-w-[1200px] mx-auto text-on-surface"
+      >
+        <!-- Brand Column -->
+        <div class="space-y-6">
+          <div class="flex items-center gap-2">
+            <img
+              alt="Footer Logo"
+              class="h-10 w-auto"
+              src="https://lh3.googleusercontent.com/aida/AP1WRLuezmt3UAEtGI1lsAqwupPqNRZIzh4iv4ScHe0TwPr4Izh48j4TOklmE6IqgFpJg4OS6TPdgem4A2RGdrA88KpXvCUyLTQeMLBWKiJ_EiVGFCHVRoMEYmzVuXYckp0i9gajAzaO1QkT765Anbm8fgv0455IPC_zLxdAIQT1s7EWGBXzZlkYgMlcUt_Hm9rhXAp8n01g3DHEOW3NlG527K34hUA8oIlCMr0eCVdDwI-RDYHN85zWDb9s8oDW"
+            />
+            <span class="font-headline-lg text-heritage-red">Iloko</span>
+          </div>
+          <p class="font-body-md text-on-surface-variant">
+            Empowering students to discover their potential through innovative
+            education, character development, and a vibrant community.
+          </p>
+          <div class="flex gap-4">
+            <a
+              class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-heritage-red shadow-sm hover:bg-heritage-red hover:text-white transition-all"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-lg">public</span>
+            </a>
+            <a
+              class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-heritage-red shadow-sm hover:bg-heritage-red hover:text-white transition-all"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-lg">school</span>
+            </a>
+            <a
+              class="w-10 h-10 rounded-full bg-white flex items-center justify-center text-heritage-red shadow-sm hover:bg-heritage-red hover:text-white transition-all"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-lg">forum</span>
+            </a>
+          </div>
         </div>
-
-        <!-- <div class="tagline-banner">
-          <span class="tagline-pill">
-            Striving for the top - learning made simple
-          </span>
-        </div> -->
+        <!-- Quick Links -->
+        <div>
+          <h4
+            class="font-label-md uppercase tracking-widest text-secondary mb-6"
+          >
+            Quick Links
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                class="font-body-md text-on-surface-variant hover:text-heritage-red transition-colors"
+                href="#"
+                >Our Heritage</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-md text-on-surface-variant hover:text-heritage-red transition-colors"
+                href="#"
+                >Academic Life</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-md text-on-surface-variant hover:text-heritage-red transition-colors"
+                href="#"
+                >Admissions</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-md text-on-surface-variant hover:text-heritage-red transition-colors"
+                href="#"
+                >News &amp; Events</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-md text-on-surface-variant hover:text-heritage-red transition-colors"
+                href="#"
+                >Campus Map</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- Programs -->
+        <div>
+          <h4
+            class="font-label-md uppercase tracking-widest text-secondary mb-6"
+          >
+            Programs
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                class="font-body-md text-on-surface-variant hover:text-heritage-red transition-colors"
+                href="#"
+                >Primary School</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-md text-on-surface-variant hover:text-heritage-red transition-colors"
+                href="#"
+                >Junior Secondary</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-md text-on-surface-variant hover:text-heritage-red transition-colors"
+                href="#"
+                >Senior Secondary</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-md text-on-surface-variant hover:text-heritage-red transition-colors"
+                href="#"
+                >STEM Innovation</a
+              >
+            </li>
+            <li>
+              <a
+                class="font-body-md text-on-surface-variant hover:text-heritage-red transition-colors"
+                href="#"
+                >Alumni Network</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- Contact -->
+        <div>
+          <h4
+            class="font-label-md uppercase tracking-widest text-secondary mb-6"
+          >
+            Contact Us
+          </h4>
+          <ul class="space-y-6">
+            <li class="flex gap-4">
+              <span class="material-symbols-outlined text-heritage-red"
+                >location_on</span
+              >
+              <p class="font-body-md text-on-surface-variant">
+                123 Education Crescent, Lekki Phase 1, Lagos, Nigeria
+              </p>
+            </li>
+            <li class="flex gap-4">
+              <span class="material-symbols-outlined text-heritage-red"
+                >call</span
+              >
+              <p class="font-body-md text-on-surface-variant">
+                +234 (555) 123-4567
+              </p>
+            </li>
+            <li class="flex gap-4">
+              <span class="material-symbols-outlined text-heritage-red"
+                >mail</span
+              >
+              <p class="font-body-md text-on-surface-variant">
+                admissions@iloko.edu.ng
+              </p>
+            </li>
+          </ul>
+        </div>
       </div>
-
-      <div class="sr-only">
-        platform focus: Primary School - Secondary School - LMS - Admin and
-        Parent Portal
+      <!-- Bottom Footer -->
+      <div
+        class="border-t border-outline-variant bg-surface-container px-margin-mobile md:px-margin-desktop py-6"
+      >
+        <div
+          class="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <p class="font-label-md text-on-surface-variant">
+            © 2024 Iloko Model College. Excellence, Character, and Community.
+          </p>
+          <div class="flex gap-8">
+            <a
+              class="font-label-md text-on-surface-variant hover:text-heritage-red underline underline-offset-4"
+              href="#"
+              >Privacy Policy</a
+            >
+            <a
+              class="font-label-md text-on-surface-variant hover:text-heritage-red underline underline-offset-4"
+              href="#"
+              >Terms of Service</a
+            >
+          </div>
+        </div>
       </div>
-    </main>
+    </footer>
+    <script>
+      // Simple header background shift on scroll
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        if (window.scrollY > 50) {
+          header.classList.add("py-2", "shadow-md");
+          header.classList.remove("py-4", "shadow-sm");
+        } else {
+          header.classList.add("py-4", "shadow-sm");
+          header.classList.remove("py-2", "shadow-md");
+        }
+      });
+    </script>
   </body>
 </html>
