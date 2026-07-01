@@ -1,0 +1,898 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admission Form - Iloko Model College</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Sora:wght@100..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#1e3c76",
+              secondary: "#2a5aad",
+              "brand-orange": "#e87820",
+            },
+            fontFamily: {
+              sora: ["Sora", "sans-serif"],
+              dm: ['"DM Sans"', "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- Alpine.js for lightweight state management -->
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+    ></script>
+  </head>
+  <body
+    class="bg-[linear-gradient(180deg,#f1f5f9_0%,#ffffff_100%)] text-slate-900 antialiased font-dm"
+  >
+    <header
+      class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm transition-all duration-300"
+    >
+      <nav
+        class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-[1200px] mx-auto"
+      >
+        <a href="/">
+          <div class="flex items-center gap-4">
+            <img
+              alt="Iloko Model College Logo"
+              class="h-12 w-auto object-contain"
+              src="assets/logo.png"
+            />
+            <span
+              class="hidden lg:block font-headline-xl text-primary tracking-tight font-bold"
+            >
+              Iloko Model College
+            </span>
+          </div>
+        </a>
+        <div class="hidden md:flex items-center gap-8">
+          <a
+            class="font-label-md text-slate-600 hover:text-primary transition-colors duration-200"
+            href="/#our-heritage"
+          >
+            Our Heritage
+          </a>
+
+          <a
+            class="font-label-md text-slate-600 hover:text-primary transition-colors duration-200"
+            href="/#academic-life"
+          >
+            Academic Life
+          </a>
+
+          <a
+            class="font-label-md text-primary border-b-2 border-brand-orange pb-1 font-semibold"
+            href="#"
+          >
+            Admissions
+          </a>
+
+          <a
+            class="font-label-md text-slate-600 hover:text-primary transition-colors duration-200"
+            href="/#news"
+          >
+            News
+          </a>
+        </div>
+        <div class="flex items-center gap-4">
+          <a
+            href="https://ilokomodelschools.com.ng/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center bg-[#A51C30] text-white px-6 py-2 rounded-lg font-label-md hover:bg-[#900723] transition-all duration-300 shadow-md active:opacity-80"
+          >
+            Portal Login
+          </a>
+          <button class="md:hidden text-on-surface p-2">
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+        </div>
+      </nav>
+    </header>
+    <section
+      id="admission"
+      class="py-[100px] px-6 relative overflow-hidden"
+      x-data="admissionWizard()"
+    >
+      <div class="max-w-[820px] mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-[56px]">
+          <span
+            class="font-sora text-[12px] font-bold text-blue-800 tracking-[0.12em] uppercase block mb-3"
+            >Admission Portal</span
+          >
+          <h2
+            class="font-sora font-black text-[clamp(32px,5vw,46px)] text-blue-950 tracking-tight leading-[1.1] mb-4"
+          >
+            Iloko Model College
+            <span class="text-brand-orange">Application.</span>
+          </h2>
+          <p class="font-dm text-[17px] text-slate-600">
+            Form No: 2026/2027/001 • Academic Session Entry
+          </p>
+        </div>
+
+        <!-- Main Container -->
+        <div
+          class="rounded-[32px] bg-white border border-blue-100 shadow-[0_24px_64px_rgba(0,40,120,0.08)] relative overflow-hidden"
+        >
+          <!-- ── SUCCESS VIEW ── -->
+          <div
+            x-show="submitted"
+            class="py-[64px] px-[48px] text-center"
+            x-cloak
+          >
+            <div
+              class="w-20 h-20 rounded-full bg-green-50 border-2 border-green-200 flex items-center justify-center mx-auto mb-6"
+            >
+              <svg
+                class="w-10 h-10 text-green-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 13l4 4L19 7"
+                />
+              </svg>
+            </div>
+            <h3 class="font-sora font-black text-[32px] text-blue-950 mb-4">
+              Application Submitted!
+            </h3>
+            <p
+              class="font-dm text-[17px] text-slate-600 leading-[1.65] max-w-[520px] mx-auto mb-4"
+            >
+              The application data for candidate
+              <strong
+                class="text-blue-900"
+                x-text="form.surname + ' ' + form.firstName"
+              ></strong>
+              has been saved.
+            </p>
+            <p class="text-sm text-slate-400">
+              Please present original credential attachments during the
+              examination session.
+            </p>
+          </div>
+
+          <!-- ── INTERACTIVE FORM VIEW ── -->
+          <div x-show="!submitted" class="p-[48px]">
+            <!-- Wizard Steps Map -->
+            <div class="flex items-center justify-center gap-2 mb-10 flex-wrap">
+              <template x-for="(label, index) in steps" :key="index">
+                <div class="flex items-center gap-2">
+                  <div class="flex flex-col items-center gap-1">
+                    <div
+                      class="w-9 h-9 rounded-full flex items-center justify-center font-sora text-[13px] font-bold transition-all duration-300"
+                      :class="(step > index + 1 || step === index + 1) ? 'bg-gradient-to-br from-primary to-secondary text-white' : 'bg-slate-100 border border-slate-200 text-slate-400'"
+                      x-text="step > index + 1 ? '✓' : index + 1"
+                    ></div>
+                    <span
+                      class="font-sora text-[10px] font-semibold"
+                      :class="step === index + 1 ? 'text-blue-800' : (step > index + 1 ? 'text-slate-500' : 'text-slate-300')"
+                      x-text="label"
+                    ></span>
+                  </div>
+                  <div
+                    x-show="index < steps.length - 1"
+                    class="w-6 h-[2px] mb-[18px]"
+                    :class="step > index + 1 ? 'bg-primary' : 'bg-slate-200'"
+                  ></div>
+                </div>
+              </template>
+            </div>
+
+            <!-- Form Element -->
+            <form @submit.prevent="handleSubmit">
+              <!-- ── STEP 1: STUDENT DATA ── -->
+              <div x-show="step === 1" class="space-y-6">
+                <div class="py-2 border-b border-slate-100">
+                  <h4 class="font-sora font-bold text-blue-900">
+                    Section A: Candidate Bio-Data
+                  </h4>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-[18px]">
+                  <div>
+                    <label
+                      class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                      >Surname *</label
+                    >
+                    <input
+                      type="text"
+                      class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none transition-all focus:border-primary focus:bg-blue-50/30"
+                      placeholder="Surname"
+                      x-model="form.surname"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                      >First Name *</label
+                    >
+                    <input
+                      type="text"
+                      class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none transition-all focus:border-primary focus:bg-blue-50/30"
+                      placeholder="First Name"
+                      x-model="form.firstName"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                      >Middle Name</label
+                    >
+                    <input
+                      type="text"
+                      class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none transition-all focus:border-primary focus:bg-blue-50/30"
+                      placeholder="Middle Name"
+                      x-model="form.middleName"
+                    />
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-[18px]">
+                  <div>
+                    <label
+                      class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                      >Date of Birth *</label
+                    >
+                    <input
+                      type="date"
+                      class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none transition-all focus:border-primary focus:bg-blue-50/30"
+                      x-model="form.dateOfBirth"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                      >Age *</label
+                    >
+                    <input
+                      type="number"
+                      class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none transition-all focus:border-primary focus:bg-blue-50/30"
+                      placeholder="Age"
+                      x-model="form.age"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                    >Religion *</label
+                  >
+                  <div class="flex items-center gap-6 mt-2">
+                    <template
+                      x-for="rel in ['Christianity', 'Islam', 'Others']"
+                    >
+                      <label
+                        class="flex items-center gap-3 cursor-pointer font-dm text-[14px] text-slate-700"
+                      >
+                        <input
+                          type="radio"
+                          name="religion"
+                          :value="rel"
+                          x-model="form.religion"
+                          class="accent-blue-800 w-4 h-4"
+                        />
+                        <span x-text="rel"></span>
+                      </label>
+                    </template>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-[18px]">
+                  <div>
+                    <label
+                      class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                      >Home Town *</label
+                    >
+                    <input
+                      type="text"
+                      class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none transition-all focus:border-primary focus:bg-blue-50/30"
+                      placeholder="Home Town"
+                      x-model="form.homeTown"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                      >L.G. Area *</label
+                    >
+                    <input
+                      type="text"
+                      class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none transition-all focus:border-primary focus:bg-blue-50/30"
+                      placeholder="Local Government Area"
+                      x-model="form.lgArea"
+                    />
+                  </div>
+                </div>
+
+                <div class="flex justify-end mt-8">
+                  <button
+                    type="button"
+                    @click="step = 2"
+                    :disabled="!canStep1()"
+                    class="font-sora font-bold text-[15px] text-white px-8 py-3.5 rounded-full transition-all disabled:bg-slate-300 disabled:cursor-not-allowed bg-gradient-to-r from-primary to-secondary shadow-md"
+                  >
+                    Next Step →
+                  </button>
+                </div>
+              </div>
+
+              <!-- ── STEP 2: ENROLLMENT DETAILS ── -->
+              <div x-show="step === 2" class="space-y-6" x-cloak>
+                <div class="py-2 border-b border-slate-100">
+                  <h4 class="font-sora font-bold text-blue-900">
+                    Academic Target & Residence
+                  </h4>
+                </div>
+
+                <div>
+                  <label
+                    class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                    >Present School *</label
+                  >
+                  <input
+                    type="text"
+                    class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none transition-all focus:border-primary focus:bg-blue-50/30"
+                    placeholder="Current school name"
+                    x-model="form.presentSchool"
+                  />
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-[18px]">
+                  <div>
+                    <label
+                      class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                      >Class to Which Admission is Sought *</label
+                    >
+                    <input
+                      type="text"
+                      class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none transition-all focus:border-primary focus:bg-blue-50/30"
+                      placeholder="e.g. JSS 1, SSS 1"
+                      x-model="form.classSought"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                      >Main Sponsor(s) *</label
+                    >
+                    <input
+                      type="text"
+                      class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none transition-all focus:border-primary focus:bg-blue-50/30"
+                      placeholder="Sponsor's full identity"
+                      x-model="form.mainSponsor"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label
+                    class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                    >Choice of Studentship *</label
+                  >
+                  <div class="flex items-center gap-6 mt-2">
+                    <template x-for="type in ['Day', 'Boarding']">
+                      <label
+                        class="flex items-center gap-3 cursor-pointer font-dm text-[14px] text-slate-700"
+                      >
+                        <input
+                          type="radio"
+                          name="studentshipType"
+                          :value="type"
+                          x-model="form.studentshipType"
+                          class="accent-blue-800 w-4 h-4"
+                        />
+                        <span x-text="type + ' Space'"></span>
+                      </label>
+                    </template>
+                  </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-[18px]">
+                  <div>
+                    <label
+                      class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                      >Residential Address</label
+                    >
+                    <textarea
+                      class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none transition-all focus:border-primary focus:bg-blue-50/30"
+                      placeholder="Candidate Residential Address"
+                      x-model="form.residentialAddress"
+                      rows="2"
+                    ></textarea>
+                  </div>
+                  <div>
+                    <label
+                      class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                      >Postal Address</label
+                    >
+                    <textarea
+                      class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none transition-all focus:border-primary focus:bg-blue-50/30"
+                      placeholder="Postal Box Info"
+                      x-model="form.postalAddress"
+                      rows="2"
+                    ></textarea>
+                  </div>
+                </div>
+
+                <div class="flex justify-between mt-8">
+                  <button
+                    type="button"
+                    @click="step = 1"
+                    class="font-sora font-semibold text-[15px] text-slate-600 px-6 py-3.5 rounded-full border border-slate-200 bg-slate-50"
+                  >
+                    ← Back
+                  </button>
+                  <button
+                    type="button"
+                    @click="step = 3"
+                    :disabled="!canStep2()"
+                    class="font-sora font-bold text-[15px] text-white px-8 py-3.5 rounded-full transition-all disabled:bg-slate-300 disabled:cursor-not-allowed bg-gradient-to-r from-primary to-secondary shadow-md"
+                  >
+                    Next: Parents' Data →
+                  </button>
+                </div>
+              </div>
+
+              <!-- ── STEP 3: PARENTS' DATA ── -->
+              <div x-show="step === 3" class="space-y-8" x-cloak>
+                <div class="py-2 border-b border-slate-100">
+                  <h4 class="font-sora font-bold text-blue-900">
+                    Section B: Parents / Guardians Information
+                  </h4>
+                </div>
+
+                <!-- Father Data Cluster -->
+                <div
+                  class="bg-slate-50 p-5 rounded-2xl border border-slate-100 space-y-4"
+                >
+                  <h5 class="font-sora font-bold text-sm text-slate-700">
+                    Father's Parameters
+                  </h5>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                        >Father's Full Name *</label
+                      >
+                      <input
+                        type="text"
+                        class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none focus:border-primary"
+                        placeholder="Surname first"
+                        x-model="form.fatherName"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                        >Occupation *</label
+                      >
+                      <input
+                        type="text"
+                        class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none focus:border-primary"
+                        placeholder="Business / Profession"
+                        x-model="form.fatherOccupation"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                      >
+                        Office Address *
+                      </label>
+
+                      <textarea
+                        rows="2"
+                        class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none focus:border-primary"
+                        placeholder="Father's Office Address"
+                        x-model="form.fatherOfficeAddress"
+                      ></textarea>
+                    </div>
+                    <div>
+                      <label
+                        class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                        >Educational Qualification</label
+                      >
+                      <input
+                        type="text"
+                        class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none focus:border-primary"
+                        placeholder="Highest Degree attained"
+                        x-model="form.fatherQualification"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                        >Email Address</label
+                      >
+                      <input
+                        type="email"
+                        class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none focus:border-primary"
+                        placeholder="father@example.com"
+                        x-model="form.fatherEmail"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Mother Data Cluster -->
+                <div
+                  class="bg-slate-50 p-5 rounded-2xl border border-slate-100 space-y-4"
+                >
+                  <h5 class="font-sora font-bold text-sm text-slate-700">
+                    Mother's Parameters
+                  </h5>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                        >Mother's Full Name *</label
+                      >
+                      <input
+                        type="text"
+                        class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none focus:border-primary"
+                        placeholder="Surname first"
+                        x-model="form.motherName"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                        >Occupation *</label
+                      >
+                      <input
+                        type="text"
+                        class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none focus:border-primary"
+                        placeholder="Business / Profession"
+                        x-model="form.motherOccupation"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                      >
+                        Office Address *
+                      </label>
+
+                      <textarea
+                        rows="2"
+                        class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none focus:border-primary"
+                        placeholder="Mother's Office Address"
+                        x-model="form.motherOfficeAddress"
+                      ></textarea>
+                    </div>
+                    <div>
+                      <label
+                        class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                        >Educational Qualification</label
+                      >
+                      <input
+                        type="text"
+                        class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none focus:border-primary"
+                        placeholder="Highest Degree attained"
+                        x-model="form.motherQualification"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                        >Email Address</label
+                      >
+                      <input
+                        type="email"
+                        class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none focus:border-primary"
+                        placeholder="mother@example.com"
+                        x-model="form.motherEmail"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Unified Contacts -->
+                <div class="space-y-4">
+                  <div>
+                    <label
+                      class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                      >Parents' Contact Address *</label
+                    >
+                    <input
+                      type="text"
+                      class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none focus:border-primary"
+                      placeholder="Physical Contact Location Address"
+                      x-model="form.parentsContactAddress"
+                    />
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                      <label
+                        class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                        >Primary Phone Number *</label
+                      >
+                      <input
+                        type="tel"
+                        class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none focus:border-primary"
+                        placeholder="Phone 1"
+                        x-model="form.phoneNo1"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                        >Secondary Phone Number</label
+                      >
+                      <input
+                        type="tel"
+                        class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none focus:border-primary"
+                        placeholder="Phone 2"
+                        x-model="form.phoneNo2"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="flex justify-between mt-8">
+                  <button
+                    type="button"
+                    @click="step = 2"
+                    class="font-sora font-semibold text-[15px] text-slate-600 px-6 py-3.5 rounded-full border border-slate-200 bg-slate-50"
+                  >
+                    ← Back
+                  </button>
+                  <button
+                    type="button"
+                    @click="step = 4"
+                    :disabled="!canStep3()"
+                    class="font-sora font-bold text-[15px] text-white px-8 py-3.5 rounded-full transition-all disabled:bg-slate-300 disabled:cursor-not-allowed bg-gradient-to-r from-primary to-secondary shadow-md"
+                  >
+                    Next: Affirmation →
+                  </button>
+                </div>
+              </div>
+
+              <!-- ── STEP 4: AFFIRMATION ── -->
+              <div x-show="step === 4" class="space-y-6" x-cloak>
+                <div class="py-2 border-b border-slate-100">
+                  <h4 class="font-sora font-bold text-blue-900">
+                    Parent/Guardian Affirmation
+                  </h4>
+                </div>
+
+                <div
+                  class="bg-blue-50/50 p-6 rounded-2xl border border-blue-100 text-slate-700 space-y-4 text-sm leading-relaxed"
+                >
+                  <p>
+                    I/We hereby voluntarily release the candidate to attend
+                    <strong>Iloko Model College, Iloko-Ijesa</strong>.
+                  </p>
+                  <p>
+                    I/We guarantee his/her good conduct, character preservation,
+                    and strict adherence to institutional regulations.
+                  </p>
+                </div>
+
+                <div>
+                  <label
+                    class="font-sora text-[13px] font-semibold text-slate-600 mb-2 block"
+                    >Parent/Guardian Full Name (Signature Authorization)
+                    *</label
+                  >
+                  <input
+                    type="text"
+                    class="w-full py-[14px] px-[18px] rounded-[14px] bg-white border border-slate-200 text-blue-950 font-dm text-[15px] outline-none focus:border-primary"
+                    placeholder="Type full name to acknowledge agreement"
+                    x-model="form.parentAffirmationName"
+                  />
+                </div>
+
+                <label class="flex items-start gap-3 cursor-pointer group mt-4">
+                  <input
+                    type="checkbox"
+                    x-model="form.agreeToTerms"
+                    class="mt-1 accent-blue-800 h-4 w-4"
+                  />
+                  <span class="text-xs font-dm text-slate-500 leading-tight">
+                    I confirm that the parameters supplied above are accurate
+                    representations of the candidate's documentation profiles.
+                  </span>
+                </label>
+
+                <div class="flex justify-between mt-8 items-center">
+                  <button
+                    type="button"
+                    @click="step = 3"
+                    class="font-sora font-semibold text-[15px] text-slate-600 px-6 py-3.5 rounded-full border border-slate-200 bg-slate-50"
+                  >
+                    ← Back
+                  </button>
+                  <button
+                    type="submit"
+                    :disabled="loading || !canStep4()"
+                    class="font-sora font-bold text-[15px] text-white px-8 py-3.5 rounded-full transition-all disabled:bg-slate-300 disabled:cursor-not-allowed bg-gradient-to-r from-primary to-secondary shadow-md"
+                  >
+                    <span
+                      x-text="loading ? 'Processing Admission...' : 'Submit Application Form'"
+                    ></span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- State and Submit Engine Script -->
+    <script>
+      const GOOGLE_FORM_URL =
+        "https://docs.google.com/forms/d/e/1FAIpQLScmpd95BFbpgoFYYeIbIKONNQnwmzYDXt46Qe34Ah6xYR-0zw/formResponse";
+
+      function admissionWizard() {
+        return {
+          step: 1,
+          submitted: false,
+          loading: false,
+          steps: [
+            "Student Identity",
+            "Academic Profile",
+            "Parents' Data",
+            "Affirmation",
+          ],
+          form: {
+            surname: "",
+            firstName: "",
+            middleName: "",
+            residentialAddress: "",
+            postalAddress: "",
+            dateOfBirth: "",
+            age: "",
+            religion: "",
+            homeTown: "",
+            lgArea: "",
+            presentSchool: "",
+            mainSponsor: "",
+            classSought: "",
+            studentshipType: "",
+            fatherName: "",
+            fatherOccupation: "",
+            fatherQualification: "",
+            fatherOfficeAddress: "",
+            fatherEmail: "",
+            motherName: "",
+            motherOccupation: "",
+            motherQualification: "",
+            motherOfficeAddress: "",
+            motherEmail: "",
+            parentsContactAddress: "",
+            phoneNo1: "",
+            phoneNo2: "",
+            parentAffirmationName: "",
+            agreeToTerms: false,
+          },
+          canStep1() {
+            return (
+              this.form.surname &&
+              this.form.firstName &&
+              this.form.dateOfBirth &&
+              this.form.age &&
+              this.form.religion &&
+              this.form.homeTown &&
+              this.form.lgArea
+            );
+          },
+          canStep2() {
+            return (
+              this.form.presentSchool &&
+              this.form.mainSponsor &&
+              this.form.classSought &&
+              this.form.studentshipType
+            );
+          },
+          canStep3() {
+            return (
+              this.form.fatherName &&
+              this.form.fatherOccupation &&
+              this.form.fatherOfficeAddress &&
+              this.form.motherName &&
+              this.form.motherOccupation &&
+              this.form.motherOfficeAddress &&
+              this.form.parentsContactAddress &&
+              this.form.phoneNo1
+            );
+          },
+          canStep4() {
+            return this.form.parentAffirmationName && this.form.agreeToTerms;
+          },
+          async handleSubmit() {
+            if (!this.canStep4()) return;
+            this.loading = true;
+
+            const formData = new FormData();
+
+            // Remember to update these to map your Google Form key entry mappings!
+            formData.append("entry.1286436489", this.form.surname);
+            formData.append("entry.653645497", this.form.firstName);
+            formData.append("entry.447647449", this.form.middleName);
+            formData.append("entry.1495722647", this.form.dateOfBirth);
+            formData.append("entry.2095630392", this.form.age);
+            formData.append("entry.843002409", this.form.religion);
+            formData.append("entry.412621139", this.form.homeTown);
+            formData.append("entry.195545659", this.form.lgArea);
+            formData.append("entry.1249740252", this.form.presentSchool);
+            formData.append("entry.290863766", this.form.mainSponsor);
+            formData.append("entry.1597548933", this.form.classSought);
+            formData.append("entry.2069758288", this.form.studentshipType);
+            formData.append("entry.1319934217", this.form.fatherName);
+            formData.append("entry.1696205950", this.form.fatherOccupation);
+            formData.append("entry.1276170881", this.form.motherName);
+            formData.append("entry.1692194743", this.form.motherOccupation);
+            formData.append(
+              "entry.1717600540",
+              this.form.parentsContactAddress,
+            );
+            formData.append("entry.545944316", this.form.phoneNo1);
+            formData.append(
+              "entry.1991248828",
+              this.form.parentAffirmationName,
+            );
+
+            formData.append("entry.775880010", this.form.residentialAddress);
+            formData.append("entry.554683396", this.form.postalAddress);
+
+            formData.append("entry.501928084", this.form.fatherQualification);
+            formData.append("entry.482862460", this.form.fatherEmail);
+            formData.append("entry.481755023", this.form.fatherOfficeAddress);
+
+            formData.append("entry.1654753890", this.form.motherQualification);
+            formData.append("entry.992469058", this.form.motherEmail);
+            formData.append("entry.344506048", this.form.motherOfficeAddress);
+
+            formData.append("entry.1147799453", this.form.phoneNo2);
+
+            try {
+              await fetch(GOOGLE_FORM_URL, {
+                method: "POST",
+                mode: "no-cors",
+                body: formData,
+              });
+            } catch (e) {
+              console.log("Form redirection interception.");
+            }
+
+            this.loading = false;
+            this.submitted = true;
+          },
+        };
+      }
+    </script>
+
+    <!-- Avoid Alpine styling flashes during initialization -->
+    <style>
+      [x-cloak] {
+        display: none !important;
+      }
+    </style>
+  </body>
+</html>
